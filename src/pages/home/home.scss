@@ -1,0 +1,34 @@
+@import '../../static/css/vars.scss';
+.home-wrap {
+  height: 100vh;
+  .home-search-wrap {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    height: 120px;
+    border-bottom: 1px solid $border_color;
+  }
+  .home-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 80px;
+    border-radius: 30px;
+    color: $input_font_color;
+    background-color: $input_bg;
+  }
+  .home-search-icon {
+    font-size: 30px;
+  }
+  .home-search-input {
+    flex: 1;
+    padding: 0 20px;
+    height: 100%;
+    color: $input_font_color;
+    &::placeholder {
+      color: $input_font_color;
+    }
+  }
+}

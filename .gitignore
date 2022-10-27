@@ -1,0 +1,7 @@
+node_modules
+dist
+
+.cache
+
+# 测试报告
+**/coverage
