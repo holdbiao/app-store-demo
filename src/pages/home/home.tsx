@@ -25,8 +25,7 @@ export default class App extends tsc<{}> {
   freeTopList: IAppItem[] = []
 
   created() {
-   this.getTopList()
-   this.getFreeTopList()
+    this.handleGetAllData()
   }
 
   /**
@@ -51,6 +50,17 @@ export default class App extends tsc<{}> {
   get searchEmpty() {
     return !!this.searchText.trim() && !this.currentList.length
   }
+
+  /**
+   * 获取应用列表数据
+   */
+  handleGetAllData() {
+    this.$loading.show()
+    Promise.all([
+      this.getTopList(),
+      this.getFreeTopList()
+    ]).finally(() => this.$loading.hide())
+  }
   /**
    * 获取最受欢迎的应用数据
    */
@@ -62,6 +72,7 @@ export default class App extends tsc<{}> {
     console.log(data)
     this.topList = this.handleAppData(data.data.feed.entry)
     console.log(this.topList)
+    return data
   }
 
   /**
@@ -75,6 +86,7 @@ export default class App extends tsc<{}> {
     this.freeTopList = this.handleAppData(data.data.feed.entry)
     console.log(this.freeTopList)
     this.getAppDetail(this.freeTopList)
+    return data
   }
 
   /**

@@ -1,6 +1,7 @@
 import { Component as tsc } from 'vue-tsx-support'
 import { Component } from 'vue-property-decorator'
-import Home from './pages/home/home.tsx'
+import Home from './pages/home/home'
+
 @Component({
   name: 'App'
 })

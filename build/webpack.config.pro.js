@@ -9,13 +9,9 @@ const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const smp = new SpeedMeasurePlugin({ /** 构建速度分析 */
   disable: true
 });
-// const { ProgressPlugin } = require('webpack'); // 构建进度插件
-// const ProgressBarPlugin = require('progress-bar-webpack-plugin'); // 构建进度插件
-// const Webpackbar = require('webpackbar');
 
 module.exports = smp.wrap(merge(base, {
   mode: 'production',
-  // devtool: 'source-map',
   plugins: [
     // 简化了 HTML 文件的创建，以便为你的 webpack 包提供服务, 也可以指定html模板
     new HtmlWebpackPlugin({
@@ -26,14 +22,6 @@ module.exports = smp.wrap(merge(base, {
       filename: 'css/[name].[contenthash:8].css'
     }),
     new CleanWebpackPlugin(), // 打包前清理dist目录
-    /**
-     *  构建进度显示
-     */
-    // new ProgressPlugin()
-    // new ProgressBarPlugin()
-    // new Webpackbar({
-    //   name: '构建中'
-    // })
   ],
   optimization: {
     minimize: true,
