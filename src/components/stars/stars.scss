@@ -1,0 +1,10 @@
+@import '../../static/css/vars.scss';
+.stars-wrap {
+  .icon-stars {
+    font-size: 24px;
+    color: $stars_color;
+    &:not(:last-child) {
+      margin-right: 3px;
+    }
+  }
+}

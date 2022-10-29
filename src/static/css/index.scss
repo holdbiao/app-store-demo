@@ -4,13 +4,41 @@ body {
   padding: 0;
   height: 100vh;
   width: 100vw;
+  font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, MicrosoftYaHei;
 }
-
+* {
+  box-sizing: border-box;
+}
 input {
   border: none;
   background-color: transparent;
   outline:none;
+  font-size: 30px;
   &:focus {
     border: none;
+    font-size: 30px;
   }
+}
+
+// 单行溢出
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+// 居中
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// 主轴居中
+@mixin flexJustifyCenter {
+  display: flex;
+  justify-content: center;
+}
+// 交叉轴居中
+@mixin flexAlginCenter {
+  display: flex;
+  align-items: center;
 }

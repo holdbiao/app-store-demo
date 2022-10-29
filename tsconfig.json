@@ -13,7 +13,7 @@
     "jsxFactory": "VueTsxSupport",
     "outDir": "./dist",
     "module": "esnext",
-    "target": "es5",
+    "target": "es6",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true, // 是否启用对装饰器的实验性支持，装饰器是一种语言特性，还没有完全被 JavaScript 规范批准

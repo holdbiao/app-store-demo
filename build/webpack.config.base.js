@@ -67,6 +67,19 @@ module.exports = {
             maxSize: 10 * 1024 // 超过10kb不转 base64
           }
         }
+      },
+      {
+        test: /\.(woff2|ttf|woff)$/,
+        type: 'asset/resource',
+        exclude: /node_modules/,
+        generator: {
+          filename: 'iconfont/[name].[contenthash:8][ext]'
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 0
+          }
+        }
       }
     ]
   },

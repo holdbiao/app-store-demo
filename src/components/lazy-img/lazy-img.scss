@@ -1,0 +1,8 @@
+@import '../../static/css/index.scss';
+.lazy-img-wrap {
+  @include flexCenter;
+  .icon-img-err,
+  .icon-loading {
+    font-size: 40px;
+  }
+}
