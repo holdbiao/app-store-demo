@@ -23,8 +23,9 @@ npm run build
 npm run test
 
 ```
-
-![图片]('./src/img/1.png')
+# 手机预览
+![](https://github.com/holdbiao/app-store-demo/blob/master/src/static/img/1.png)
+保证手机处于统一局域网下，访问终端输出的`ipv4`地址
 
 # 项目架构
 ```
