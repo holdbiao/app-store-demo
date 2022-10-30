@@ -89,7 +89,7 @@ npm run test
 
 
 问题：
-详情接口跨域问题
+// 详情接口跨域问题
 // fastclick 不需要 https://www.npmjs.com/package/fastclick
 // 单元测试
 // 自适应效果测试 ok

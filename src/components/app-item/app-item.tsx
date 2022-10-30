@@ -28,7 +28,7 @@ export default class AppItem extends tsc<IProps> {
   @Prop({ type: Number }) type: AppType
 
   get imgSrc() {
-    return this.type === AppType.horizontal ? this.data.img : this.data.img100
+    return this.type === AppType.horizontal ? this.data.img75 : this.data.img100
   }
   render() {
     return (

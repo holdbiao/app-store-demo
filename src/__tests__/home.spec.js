@@ -8,6 +8,7 @@ describe('render home page', () => {
   const wrapper = mount(Home, {
     localVue
   })
+  
   test('render pages', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
@@ -32,5 +33,15 @@ describe('render home page', () => {
       const cancel = wrapper.find('.home-search-cancel')
       expect(cancel.exists()).toBe(true)
     }, 100)
+  })
+
+  test('test search', async () => {
+    await wrapper.setData({
+      searchText: '大'
+    })
+    setTimeout(() => {
+      const result = wrapper.vm.currentList
+      expect(result.length > 0).toBe(true)
+    }, 300)
   })
 })

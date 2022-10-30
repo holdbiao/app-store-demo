@@ -9,6 +9,8 @@
     "dist"
   ],
   "compilerOptions": {
+    "esModuleInterop": true,
+    "types": ["node"],
     "jsx": "preserve",
     "jsxFactory": "VueTsxSupport",
     "outDir": "./dist",

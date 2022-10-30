@@ -20,6 +20,7 @@ specifiers:
   babel-plugin-transform-vue-jsx: ^3.7.0
   babel-preset-env: ^1.7.0
   clean-webpack-plugin: ^4.0.0
+  cross-env: ^7.0.3
   css-loader: ^6.7.1
   cssfilter: ^0.0.10
   events: ^3.3.0
@@ -43,6 +44,7 @@ specifiers:
   postcss-px-to-viewport: ^1.1.1
   progress-bar-webpack-plugin: ^2.1.0
   promise.prototype.finally: ^3.1.3
+  qs: ^6.11.0
   sass-loader: ^13.0.2
   speed-measure-webpack-plugin: ^1.5.0
   style-loader: ^3.3.1
@@ -72,6 +74,7 @@ dependencies:
   cssfilter: 0.0.10
   form-data: 4.0.0
   promise.prototype.finally: 3.1.3
+  qs: 6.11.0
   vue: 2.7.13
   vue-property-decorator: 9.1.2_lh5kvfzhejbphpoiiowdoloare
   vue-tsx-support: 3.2.0_xjcbg5znturqejtkpd33hx726m
@@ -95,6 +98,7 @@ devDependencies:
   babel-plugin-transform-vue-jsx: 3.7.0_lnx4dmmlatcxlugolp73r5j3ta
   babel-preset-env: 1.7.0
   clean-webpack-plugin: 4.0.0_webpack@5.74.0
+  cross-env: 7.0.3
   css-loader: 6.7.1_webpack@5.74.0
   events: 3.3.0
   file-loader: 6.2.0_webpack@5.74.0
@@ -4043,6 +4047,14 @@ packages:
       yaml: 1.10.2
     dev: true
 
+  /cross-env/7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
+    dev: true
+
   /cross-spawn/7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
@@ -7732,7 +7744,6 @@ packages:
     engines: {node: '>=0.6'}
     dependencies:
       side-channel: 1.0.4
-    dev: true
 
   /qs/6.5.3:
     resolution: {integrity: sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA==}

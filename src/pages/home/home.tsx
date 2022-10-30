@@ -5,6 +5,11 @@ import './home.scss'
 import { IAppItem, IAppDetail } from './type'
 import AppItem, { AppType } from '../../components/app-item/app-item'
 import { Debounce } from '../../utils/index'
+
+const api = axios.create({
+  baseURL: process.env.NODE_ENV === 'development' ? '/' : 'https://itunes.apple.com',
+})
+
 @Component({
   name: 'Home'
 })
@@ -56,7 +61,7 @@ export default class Home extends tsc<{}> {
    */
   handleGetAllData() {
     this.$loading.show()
-    Promise.all([
+    return Promise.all([
       this.getTopList(),
       this.getFreeTopList()
     ]).finally(() => {
@@ -67,13 +72,11 @@ export default class Home extends tsc<{}> {
    * 获取最受欢迎的应用数据
    */
   async getTopList() {
-    const data = await axios({
-      method: 'get',
-      url: 'https://itunes.apple.com/hk/rss/topgrossingapplications/limit=10/json'
+    const data = await api({
+      url: '/hk/rss/topgrossingapplications/limit=10/json',
+      method: 'get'
     })
-    console.log(data)
     this.topList = this.handleAppData(data.data.feed.entry)
-    console.log(this.topList)
     return data
   }
 
@@ -81,12 +84,11 @@ export default class Home extends tsc<{}> {
    * 获取下载量最多的免费app列表
    */
   async getFreeTopList() {
-    const data = await axios({
-      method: 'get',
-      url: 'https://itunes.apple.com/hk/rss/topfreeapplications/limit=100/json'
+    const data = await api({
+      url: '/hk/rss/topfreeapplications/limit=100/json',
+      method: 'get'
     })
     this.freeTopList = this.handleAppData(data.data.feed.entry)
-    console.log(this.freeTopList)
     this.getAppDetail(this.freeTopList)
     return data
   }
@@ -99,11 +101,9 @@ export default class Home extends tsc<{}> {
     const idsString = list.reduce((ids, { id }) => {
       return ids ? `${ids},${id}` : id
     }, '')
-    console.log(idsString)
-    const data = await axios({
-      method: 'get',
-      // url: `https://itunes.apple.com/hk/lookup?id=${'1636420626' || idsString}`
-      url: `https://itunes.apple.com/hk/lookup?id=${'1636420626,1456559188' || idsString}`
+    const data = await api({
+      url: `/hk/lookup?id=${idsString}`,
+      method: 'get'
     })
     this.appDetailMap = new Map()
     data.data.results.forEach(item => {
@@ -125,14 +125,15 @@ export default class Home extends tsc<{}> {
   handleAppData(dataList: Record<string, any>[]): IAppItem[] {
     return dataList.map(item => {
       const {
-        'im:image': [{ label: img },, { label: img100 }],
+        'im:image': [{ label: img53 },{ label: img75 }, { label: img100 }],
         category: { attributes: { label: type }},
         'im:name': { label: name },
         'im:artist': { label: artist },
         id: { attributes: { 'im:id': id } }
       } = item
       return {
-        img,
+        img53,
+        img75,
         img100,
         type,
         name,
@@ -170,6 +171,7 @@ export default class Home extends tsc<{}> {
              class="home-search-input"
              placeholder="Search"
              value={this.searchText}
+             type="text"
              maxLength={20}
              onFocus={() => this.inputFocus = true}
              onBlur={() => this.inputFocus = false}

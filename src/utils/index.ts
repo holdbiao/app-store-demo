@@ -10,10 +10,6 @@ export function Debounce (miliseconds = 100): MethodDecorator {
     propertyKey: string | symbol,
     descriptor: TypedPropertyDescriptor<any>
   ): TypedPropertyDescriptor<any> {
-    // Object.defineProperty(target, timeoutPropertyName, {
-    //   value: 0,
-    //   writable: true
-    // });
     const originalMethod: Function = descriptor.value;
     descriptor.value = function (...args) {
       if (this[fnName]) clearTimeout(this[fnName]);

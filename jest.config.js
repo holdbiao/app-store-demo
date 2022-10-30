@@ -28,6 +28,6 @@ module.exports = {
       babelConfig: true
     }
   },
-  collectCoverage: true,
-  reporters: ['default']
+  // collectCoverage: true,
+  // reporters: ['default']
 };

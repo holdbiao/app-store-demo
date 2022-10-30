@@ -1,21 +1,25 @@
-import { mount, createLocalVue } from '@vue/test-utils'
-import Home from '../pages/home/home'
-import Loading from '../components/loading/index'
+import { mount } from '@vue/test-utils'
+import Loading from '../components/loading/loading'
 
 describe('test loading', () => {
-  const localVue = createLocalVue()
-  localVue.use(Loading)
-  const wrapper = mount(Home, {
-    localVue
-  })
   test('render loading', () => {
+    const loading = mount(Loading)
     setTimeout(() => {
-      const Loading = wrapper.findComponent({ name: 'Loading' })
-      expect(Loading.isVueInstance()).toBeTruthy()
-      expect(Loading.vm.isLoading).toBe(true)
+      loading.handleShow()
       setTimeout(() => {
-        expect(Loading.vm.isLoading).toBe(false)
+        expect(Loading.isVueInstance()).toBeTruthy()
+        expect(Loading.vm.isLoading).toBe(true)
       }, 200)
-    }, 0)
+    }, 100)
+  })
+
+  test('test hide', () => {
+    setTimeout(() => {
+      wrapper.vm.$loading.show()
+      const Loading = wrapper.findComponent({ name: 'Loading' })
+      Loading.vm.handleHide()
+      expect(Loading.vm.isLoading).toBe(false)
+    }, 100)
+    
   })
 })

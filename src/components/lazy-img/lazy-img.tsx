@@ -65,14 +65,17 @@ export default class LazyImg extends tsc<IProps> {
     this.isError = false
     const img = document.createElement('img')
     img.src = this.src
-    img.onload = () => {
-      this.isLoaded = true
-      this.unregisterOberver()
-    }
-    img.onerror = () => {
-      this.isError = true
-      this.unregisterOberver()
-    }
+    img.onload = this.onload
+    img.onerror = this.onerror
+  }
+
+  onerror() {
+    this.isError = true
+    this.unregisterOberver()
+  }
+  onload() {
+    this.isLoaded = true
+    this.unregisterOberver()
   }
 
   render() {

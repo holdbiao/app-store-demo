@@ -3,8 +3,9 @@
  */
 export type IAppItem = {
   id: string; // id
-  img: string; // 小图
-  img100: string; // 大图
+  img53: string; // 53px图
+  img75: string; // 75px图
+  img100: string; // 100px图
   type: string; // 类型
   name: string; // 应用名称
   artist: string; // 作者

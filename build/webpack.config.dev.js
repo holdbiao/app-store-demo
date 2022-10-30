@@ -14,14 +14,14 @@ module.exports = merge(base, {
     static: path.resolve(__dirname, '../dist'),
     hot: true, // 会默认注入HotModuleReplacementPlugin
     // open: true
-    // proxy: {
-    //   '/hk': {
-    //     target: 'https://itunes.apple.com/',
-    //     secure: false,
-    //     changeOrigin: true,
-    //     toProxy: true
-    //   },
-    // }
+    proxy: {
+      '/hk': {
+        target: 'https://itunes.apple.com/',
+        secure: false,
+        changeOrigin: true,
+        toProxy: true
+      },
+    }
   },
   devtool: 'eval-cheap-module-source-map', /** 开启定位到行不定位到列的eval-cheap-module-source-map，二次构建速度比source map快 */
   plugins: [
