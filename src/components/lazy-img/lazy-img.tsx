@@ -9,7 +9,9 @@ interface IProps {
 /**
  * 图片懒加载组件
  */
-@Component
+@Component({
+  name: 'LazyImg'
+})
 export default class LazyImg extends tsc<IProps> {
   @Prop({ type: String }) src: string;
 

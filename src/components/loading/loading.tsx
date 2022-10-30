@@ -5,7 +5,9 @@ import './loading.scss';
 /**
  * 全局loading组件
  */
-@Component
+@Component({
+  name: 'Loading'
+})
 export default class Loading extends tsc<{}> {
   
   isLoading = false

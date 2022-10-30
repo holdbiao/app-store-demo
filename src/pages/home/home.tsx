@@ -6,9 +6,9 @@ import { IAppItem, IAppDetail } from './type'
 import AppItem, { AppType } from '../../components/app-item/app-item'
 import { Debounce } from '../../utils/index'
 @Component({
-  name: 'App'
+  name: 'Home'
 })
-export default class App extends tsc<{}> {
+export default class Home extends tsc<{}> {
   /** 搜索文本 */
   searchText = ''
 
@@ -59,7 +59,9 @@ export default class App extends tsc<{}> {
     Promise.all([
       this.getTopList(),
       this.getFreeTopList()
-    ]).finally(() => this.$loading.hide())
+    ]).finally(() => {
+      this.$loading.hide()
+    })
   }
   /**
    * 获取最受欢迎的应用数据

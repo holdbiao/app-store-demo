@@ -84,13 +84,14 @@ npm run test
 1. `图片懒加载` 图片加载错误可以手动点击重新加载图片
 2. `typescript` 数据具有清晰的类型定义,良好的代码风格
 3. 自适应采用`postcss-px-to-viewport`来实现自动转换为`vw`
+4. 使用`jest + @vue/test-utils`进行单元测试
 
 
 
 问题：
 详情接口跨域问题
 // fastclick 不需要 https://www.npmjs.com/package/fastclick
-单元测试
+// 单元测试
 // 自适应效果测试 ok
 api接口封装
 // 搜索防抖
